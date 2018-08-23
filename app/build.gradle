@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.festeam.win7.testsails"
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    // 1.
+    // compile 'com.github.nkzawa:socket.io-client:0.3.0'
+
+    // 2.
+    compile ('io.socket:socket.io-client:1.0.0') {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
+
+    // 3.
+    /* compile ('io.socket:engine.io-client:1.0.0') { //Engine.IO-client Java has the similar api with the JS client. You can use Socket to connect:
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    } */
+
+
+    /* test connect
+    * 1:
+    * 2: funciona con socket.io (nodejs), sails v-0.12 *** no con sails v-1.0
+    * 3:
+    * */
+
+
+
+    // in sails 0.12 el modulo de sails 1.0 funciona
+}
